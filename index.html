@@ -191,7 +191,16 @@ text-align:center;
 margin-top:50px;
 border-top:2px solid gold;
 }
+.category-products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
+}
 
+.card{
+cursor:pointer;
+}
 </style>
 
 </head>
@@ -293,76 +302,52 @@ into a leading international fashion and lifestyle brand.
 
 </section>
 
-<section id="products">
-
-<h2 class="section-title">
-
+<section id="products"><h2 class="section-title">
 Our Products
-
-</h2>
-
-<div class="products">
-
-<div class="card">
-
+</h2><div class="products"><div class="card" onclick="showCategory('jallabiya')">
 <img src="jallabiya.jpg">
-
-<h3>Premium Jallabiya</h3>
-
-<p>
-
-Elegant and premium traditional wear.
-
-</p>
-
-</div>
-
-<div class="card">
-
+<h3>Jallabiya Collection</h3>
+<p>Click to view all Jallabiya products</p>
+</div><div class="card" onclick="showCategory('abaya')">
 <img src="abaya.jpg">
-
-<h3>Luxury Abaya</h3>
-
-<p>
-
-Stylish Egyptian and Luxury Abaya collections.
-
-</p>
-
-</div>
-
-<div class="card">
-
+<h3>Abaya Collection</h3>
+<p>Click to view all Abaya products</p>
+</div><div class="card" onclick="showCategory('shoes')">
 <img src="shoe1.jpg">
-
 <h3>Shoes Collection</h3>
-
-<p>
-
-Premium shoes for all occasions.
-
-</p>
-
-</div>
-
-<div class="card">
-
+<p>Click to view all Shoes</p>
+</div><div class="card" onclick="showCategory('caps')">
 <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee">
-
 <h3>Caps & Accessories</h3>
+<p>Click to view all Caps</p>
+</div></div><br><br>
 
-<p>
-
-Quality caps and fashion accessories.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
+<div id="jallabiya" class="category-products" style="display:none;"><div class="card">
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
+<h3>Premium Jallabiya</h3>
+<p>₦35,000</p>
+<a class="whatsapp-btn" href="https://wa.me/2349151084040">Order Now</a>
+</div><div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<h3>Luxury Jallabiya</h3>
+<p>₦40,000</p>
+<a class="whatsapp-btn" href="https://wa.me/2349151084040">Order Now</a>
+</div></div><div id="abaya" class="category-products" style="display:none;"><div class="card">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b">
+<h3>Egyptian Abaya</h3>
+<p>₦40,000</p>
+<a class="whatsapp-btn" href="https://wa.me/2349151084040">Order Now</a>
+</div></div><div id="shoes" class="category-products" style="display:none;"><div class="card">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+<h3>Luxury Shoes</h3>
+<p>₦25,000</p>
+<a class="whatsapp-btn" href="https://wa.me/2349151084040">Order Now</a>
+</div></div><div id="caps" class="category-products" style="display:none;"><div class="card">
+<img src="https://images.unsplash.com/photo-1521369909029-2afed882baee">
+<h3>Premium Cap</h3>
+<p>₦8,000</p>
+<a class="whatsapp-btn" href="https://wa.me/2349151084040">Order Now</a>
+</div></div></section>
 <section id="videos">
 
 <h2 class="section-title">
@@ -456,7 +441,21 @@ All Rights Reserved.
 </p>
 
 </footer>
+<script>
 
+function showCategory(category){
+
+document.querySelectorAll('.category-products')
+.forEach(section=>{
+section.style.display='none';
+});
+
+document.getElementById(category)
+.style.display='grid';
+
+}
+
+</script>
 </body>
 
 </html>
