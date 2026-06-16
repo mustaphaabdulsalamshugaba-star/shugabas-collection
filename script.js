@@ -129,6 +129,70 @@ window.addEventListener("load",()=>{
     document.body.style.opacity="1";
 
 });
+// Hero Slider
+
+let slides = document.querySelectorAll(".slide");
+
+let currentSlide = 0;
+
+function showSlide(index){
+
+    slides.forEach(slide => slide.classList.remove("active"));
+
+    slides[index].classList.add("active");
+
+}
+
+setInterval(()=>{
+
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+
+        currentSlide = 0;
+
+    }
+
+    showSlide(currentSlide);
+
+},4000);
+function toggleWishlist(button){
+
+    button.classList.toggle("active");
+
+}
+import { auth } from "./firebase.js";
+
+import {
+onAuthStateChanged,
+signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+document.getElementById("userEmail").innerHTML =
+"👤 " + user.email;
+
+}
+
+});
+
+function logout(){
+
+signOut(auth)
+.then(()=>{
+
+alert("Logged Out");
+
+window.location.href="login.html";
+
+});
+
+}
+
+window.logout = logout;
 
 /* ==========================
    END OF SCRIPT.JS

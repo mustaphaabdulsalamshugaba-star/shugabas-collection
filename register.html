@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register | Shugaba's Collection</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Create Account</h2>
+
+<input type="email" id="email" placeholder="Email">
+
+<br><br>
+
+<input type="password" id="password" placeholder="Password">
+
+<br><br>
+
+<button id="registerBtn">Register</button>
+
+<br><br>
+
+<a href="login.html">Already have an account? Login</a>
+
+</div>
+
+<script type="module">
+
+import { auth } from "./firebase.js";
+
+import {
+createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+document.getElementById("registerBtn")
+.addEventListener("click", ()=>{
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+createUserWithEmailAndPassword(auth,email,password)
+
+.then(()=>{
+
+alert("Account created successfully!");
+
+window.location.href="login.html";
+
+})
+
+.catch((error)=>{
+
+alert(error.message);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

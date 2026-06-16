@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product Details | Shugaba's Collection</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.product-page{
+
+max-width:1200px;
+
+margin:40px auto;
+
+padding:20px;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:50px;
+
+}
+
+.main-image{
+
+width:100%;
+
+height:500px;
+
+object-fit:cover;
+
+border:2px solid gold;
+
+border-radius:15px;
+
+}
+
+.thumbnails{
+
+display:flex;
+
+gap:10px;
+
+margin-top:20px;
+
+flex-wrap:wrap;
+
+}
+
+.thumbnails img{
+
+width:80px;
+
+height:80px;
+
+cursor:pointer;
+
+border:2px solid gold;
+
+border-radius:10px;
+
+object-fit:cover;
+
+}
+
+.product-info h1{
+
+color:gold;
+
+margin-bottom:20px;
+
+}
+
+.product-info h2{
+
+color:white;
+
+margin-bottom:20px;
+
+}
+
+.product-info p{
+
+margin-bottom:20px;
+
+line-height:1.8;
+
+}
+
+.size{
+
+display:inline-block;
+
+padding:10px 15px;
+
+border:1px solid gold;
+
+margin:5px;
+
+border-radius:8px;
+
+}
+
+.color{
+
+display:inline-block;
+
+padding:10px 15px;
+
+background:gold;
+
+color:black;
+
+margin:5px;
+
+border-radius:8px;
+
+font-weight:bold;
+
+}
+
+.review{
+
+background:#111;
+
+padding:20px;
+
+margin-top:40px;
+
+border-left:4px solid gold;
+
+}
+
+.related{
+
+margin-top:70px;
+
+}
+
+.related-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+}
+
+.related-card{
+
+background:#111;
+
+padding:15px;
+
+border:2px solid gold;
+
+border-radius:10px;
+
+text-align:center;
+
+}
+
+.related-card img{
+
+width:100%;
+
+height:250px;
+
+object-fit:cover;
+
+border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>SHUGABA'S COLLECTION</h1>
+
+</header>
+
+<div class="product-page">
+
+<div>
+
+<img id="mainImage" class="main-image">
+
+<div id="gallery" class="thumbnails"></div>
+
+</div>
+
+<div class="product-info">
+
+<h1 id="name"></h1>
+
+<h2 id="price"></h2>
+
+<h3>Available Sizes</h3>
+
+<div id="sizes"></div>
+
+<br>
+
+<h3>Available Colors</h3>
+
+<div id="colors"></div>
+
+<br><br>
+
+<p id="description"></p>
+
+<a id="orderBtn" class="whatsapp-btn">
+Order on WhatsApp
+</a>
+
+<br><br>
+
+<label><strong>Quantity</strong></label><br>
+
+<button onclick="changeQty(-1)">−</button>
+
+<input type="number" id="qty" value="1" min="1" style="width:60px;text-align:center;">
+
+<button onclick="changeQty(1)">+</button>
+
+<br><br>
+
+<button onclick="addToCart()">
+Add to Cart
+</button>
+
+<div class="review">
+⭐⭐⭐⭐⭐
+
+<p>
+
+Excellent quality.
+
+Fast delivery.
+
+Highly recommended.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<section class="related">
+
+<h2 class="section-title">
+
+Related Products
+
+</h2>
+
+<div class="related-grid" id="relatedProducts">
+
+</div>
+
+</section>
+
+<div style="text-align:center; margin:40px;">
+
+<a href="index.html" class="btn">
+
+Back Home
+
+</a>
+
+</div>
+
+<script src="products.js"></script>
+
+<script>
+
+const params=new URLSearchParams(window.location.search);
+
+const id=parseInt(params.get("id"));
+
+const product=products.find(p=>p.id===id);
+
+document.getElementById("mainImage").src=product.image;
+
+document.getElementById("name").innerHTML=product.name;
+
+document.getElementById("price").innerHTML=product.price;
+
+document.getElementById("description").innerHTML=product.description;
+
+document.getElementById("orderBtn").href=
+
+"https://wa.me/2349151084040?text=Hello, I want to order "+product.name;
+
+let gallery="";
+
+product.gallery.forEach(img=>{
+
+gallery+=`<img src="${img}" onclick="document.getElementById('mainImage').src='${img}'">`;
+
+});
+
+document.getElementById("gallery").innerHTML=gallery;
+
+let sizes="";
+
+product.sizes.forEach(size=>{
+
+sizes+=`<span class="size">${size}</span>`;
+
+});
+
+document.getElementById("sizes").innerHTML=sizes;
+
+let colors="";
+
+product.colors.forEach(color=>{
+
+colors+=`<span class="color">${color}</span>`;
+
+});
+
+document.getElementById("colors").innerHTML=colors;
+
+let related="";
+
+products.forEach(item=>{
+
+if(item.id!==product.id){
+
+related+=`
+
+<div class="related-card">
+
+<a href="product.html?id=${item.id}">
+
+<img src="${item.image}">
+
+<h3>${item.name}</h3>
+
+<p>${item.price}</p>
+
+</a>
+
+</div>
+
+`;
+
+}
+
+});
+
+document.getElementById("relatedProducts").innerHTML=related;
+function addToCart(){
+
+let quantity = parseInt(document.getElementById("qty").value);
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+
+id: product.id,
+
+name: product.name,
+
+price: product.price,
+
+image: product.image,
+
+quantity: quantity
+
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert(quantity + " item(s) added to cart!");
+
+}
+function changeQty(value){
+
+let qty=document.getElementById("qty");
+
+let current=parseInt(qty.value);
+
+current=current+value;
+
+if(current<1){
+
+current=1;
+
+}
+
+qty.value=current;
+
+}
+</script>
+
+</body>
+
+</html>

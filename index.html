@@ -39,24 +39,56 @@
 
         <a href="#contact">Contact</a>
 
+        <a href="cart.html">🛒 Cart</a>
+
+        <a href="search.html">🔍 Search</a>
+
+        <a href="login.html">Login</a>
+
+        <a href="register.html">Register</a>
+
+        <span id="userEmail"></span>
+
+        <a href="#" onclick="logout()">Logout</a>
+
+
     </nav>
 
     <!-- ================= HERO ================= -->
 
-    <section class="hero" id="home">
+    <section class="hero-slider" id="home">
 
-        <h2>Welcome To Shugaba's Collection</h2>
+    <div class="slide active">
+        <img src="banner1.jpg" alt="Banner 1">
 
-        <p>
-            Your trusted destination for Premium Jallabiya,
-            Luxury Abaya, Shoes, Caps, Atamfa and Fashion Accessories.
-        </p>
+        <div class="hero-content">
+            <h2>Welcome To Shugaba's Collection</h2>
+            <p>Premium Fashion • Luxury • Quality</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </div>
 
-        <a href="#products" class="btn">
-            Shop Now
-        </a>
+    <div class="slide">
+        <img src="banner2.jpg" alt="Banner 2">
 
-    </section>
+        <div class="hero-content">
+            <h2>Latest Jallabiya Collection</h2>
+            <p>Elegant styles for every occasion.</p>
+            <a href="jallabiya.html" class="btn">View Collection</a>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="banner3.jpg" alt="Banner 3">
+
+        <div class="hero-content">
+            <h2>Luxury Accessories</h2>
+            <p>Caps, Shoes, Atamfa and more.</p>
+            <a href="#products" class="btn">Explore</a>
+        </div>
+    </div>
+
+</section>
 
     <!-- ================= ABOUT ================= -->
 
@@ -214,7 +246,131 @@
             </div>
 
     </section>
+<section class="featured">
 
+<h2>Featured Products</h2>
+
+<div class="featured-grid">
+
+<div class="featured-card">
+
+    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+        ❤
+    </button>
+
+    <img src="jallabiya1.jpg">
+
+    <h3>Luxury White Jallabiya</h3>
+
+    <p>₦35,000</p>
+
+    <a href="product.html?id=1">
+        <button>View Product</button>
+    </a>
+
+</div>
+
+<div class="featured-card">
+
+    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+        ❤
+    </button>
+
+    <img src="kaftan1.jpg">
+
+    <h3>Luxury White kaftan</h3>
+
+    <p>₦35,000</p>
+
+    <a href="product.html?id=1">
+        <button>View Product</button>
+    </a>
+
+</div>
+
+<div class="featured-card">
+
+    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+        ❤
+    </button>
+
+    <img src="cap1.jpg">
+
+    <h3>Luxury White cap</h3>
+
+    <p>₦35,000</p>
+
+    <a href="product.html?id=1">
+        <button>View Product</button>
+    </a>
+
+</div>
+
+</div>
+
+</section>
+<section class="featured">
+
+<h2>New Arrivals</h2>
+
+<div class="featured-grid">
+
+<div class="featured-card">
+
+    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+        ❤
+    </button>
+
+    <img src="jallabiya1.jpg">
+
+    <h3>Luxury White Jallabiya</h3>
+
+    <p>₦35,000</p>
+
+    <a href="product.html?id=1">
+        <button>View Product</button>
+    </a>
+
+</div>
+
+<div class="featured-card">
+
+    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+        ❤
+    </button>
+
+    <img src="perfume1.jpg">
+
+    <h3>Luxury perfume</h3>
+
+    <p>₦35,000</p>
+
+    <a href="product.html?id=1">
+        <button>View Product</button>
+    </a>
+
+</div>
+<div class="featured-card">
+
+    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+        ❤
+    </button>
+
+    <img src="watch1.jpg">
+
+    <h3>Luxury watch</h3>
+
+    <p>₦35,000</p>
+
+    <a href="product.html?id=1">
+        <button>View Product</button>
+    </a>
+
+</div>
+
+</div>
+
+</section>
     <!-- ================= VIDEOS ================= -->
 
     <section id="videos">
@@ -273,7 +429,7 @@
 
     <!-- JavaScript -->
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 <button id="topBtn" onclick="topFunction()">
     ↑
 </button>
