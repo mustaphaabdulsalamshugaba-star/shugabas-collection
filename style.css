@@ -1,0 +1,587 @@
+/* =========================
+   GENERAL STYLES
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#000;
+    color:#fff;
+    line-height:1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#000;
+    text-align:center;
+    padding:20px;
+    border-bottom:2px solid gold;
+}
+
+.logo{
+    width:220px;
+    max-width:100%;
+}
+
+header h1{
+    color:gold;
+    font-size:42px;
+    margin-top:15px;
+    letter-spacing:2px;
+}
+
+header p{
+    color:#ddd;
+    margin-top:10px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    padding:18px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid gold;
+}
+
+nav a{
+    color:gold;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url("photo1.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h2{
+    font-size:58px;
+    color:gold;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:850px;
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:gold;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:8px;
+    transition:.3s;
+    cursor:pointer;
+    border:none;
+}
+
+.btn:hover{
+    background:#fff;
+    transform:translateY(-3px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:80px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    color:gold;
+    margin-bottom:50px;
+}
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.about-container img{
+    width:350px;
+    max-width:100%;
+    border-radius:15px;
+    border:3px solid gold;
+    box-shadow:0 0 20px rgba(255,215,0,.3);
+}
+
+.about-text{
+    flex:1;
+    min-width:300px;
+}
+
+.about-text h2{
+    color:gold;
+    margin-bottom:20px;
+    font-size:35px;
+}
+
+.about-text p{
+    color:#ddd;
+    font-size:18px;
+    text-align:justify;
+    line-height:1.9;
+}
+
+#moreText{
+    display:none;
+}
+
+/* =========================
+   PRODUCTS SECTION
+========================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.product-link{
+    text-decoration:none;
+    color:white;
+}
+
+.card{
+    background:#111;
+    border:2px solid gold;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.4s;
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px gold;
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.card h3{
+    color:gold;
+    font-size:28px;
+    margin:20px 0 10px;
+}
+
+.card p{
+    color:#ddd;
+    padding:0 20px 25px;
+    font-size:17px;
+}
+
+/* =========================
+   PRODUCT GALLERY
+========================= */
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:15px;
+    flex-wrap:wrap;
+}
+
+.gallery img{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border:2px solid gold;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 10px gold;
+}
+
+/* =========================
+   PRODUCT PRICE
+========================= */
+
+.price{
+    color:gold;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+
+.whatsapp-btn{
+    display:inline-block;
+    margin-bottom:25px;
+    padding:12px 25px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.whatsapp-btn:hover{
+    background:#1ebc57;
+}
+/* =========================
+   VIDEO GALLERY
+========================= */
+
+.video-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.video-gallery video{
+    width:100%;
+    border-radius:15px;
+    border:2px solid gold;
+    box-shadow:0 0 15px rgba(255,215,0,.2);
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact{
+    text-align:center;
+    background:#111;
+    border-top:2px solid gold;
+}
+
+.contact p{
+    font-size:20px;
+    margin:15px 0;
+    color:#ddd;
+}
+
+.contact .whatsapp-btn{
+    margin-top:25px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#000;
+    color:#aaa;
+    text-align:center;
+    padding:30px 20px;
+    border-top:2px solid gold;
+}
+
+footer h3{
+    color:gold;
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+/* =========================
+   BACK TO HOME BUTTON
+========================= */
+
+.back-home{
+    display:inline-block;
+    margin:30px auto;
+    padding:15px 30px;
+    background:gold;
+    color:#000;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.back-home:hover{
+    background:#fff;
+}
+
+/* =========================
+   SCROLL TO TOP BUTTON
+========================= */
+
+#topBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    display:none;
+    background:gold;
+    color:#000;
+    border:none;
+    padding:15px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:20px;
+    font-weight:bold;
+    box-shadow:0 0 15px gold;
+    transition:.3s;
+}
+
+#topBtn:hover{
+    transform:scale(1.1);
+    background:white;
+}
+
+/* =========================
+   FADE-IN ANIMATION
+========================= */
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   IMAGE HOVER EFFECT
+========================= */
+
+img{
+    transition:.4s;
+}
+
+img:hover{
+    transform:scale(1.03);
+}
+
+/* =========================
+   BUTTON HOVER EFFECT
+========================= */
+
+button,
+.btn,
+.whatsapp-btn{
+    transition:.3s ease;
+}
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width:991px){
+
+    .hero h2{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    header h1{
+        font-size:32px;
+    }
+
+    .section-title{
+        font-size:34px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+        padding:15px;
+    }
+
+    .hero{
+        height:auto;
+        padding:80px 20px;
+    }
+
+    .hero h2{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .about-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .about-container img{
+        width:260px;
+    }
+
+    .about-text h2{
+        font-size:28px;
+    }
+
+    .about-text p{
+        text-align:left;
+        font-size:16px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .video-gallery{
+        grid-template-columns:1fr;
+    }
+
+    .contact p{
+        font-size:17px;
+    }
+
+    .btn,
+    .whatsapp-btn,
+    .back-home{
+        width:100%;
+        text-align:center;
+    }
+
+}
+
+@media (max-width:480px){
+
+    header{
+        padding:15px;
+    }
+
+    .logo{
+        width:150px;
+    }
+
+    header h1{
+        font-size:26px;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .section-title{
+        font-size:28px;
+    }
+
+    .card img{
+        height:230px;
+    }
+
+    .card h3{
+        font-size:22px;
+    }
+
+    .card p{
+        font-size:15px;
+    }
+
+    footer h3{
+        font-size:22px;
+    }
+
+}
+
+/* =========================
+   CUSTOM SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:gold;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#ffd700;
+}
+
+/* =========================
+   TEXT SELECTION
+========================= */
+
+::selection{
+    background:gold;
+    color:black;
+}
+
+/* =========================
+   END OF STYLE.CSS
+========================= */
