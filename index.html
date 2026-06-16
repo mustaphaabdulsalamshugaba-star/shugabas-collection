@@ -275,7 +275,7 @@ Abdulsalam Shugaba Mustapha
 
 <br>
 
-<p>
+<p id="aboutText">
 
 Abdulsalam Shugaba Mustapha is the Founder and Chief Executive Officer (CEO)
 of Shugaba's Collection.
@@ -283,6 +283,8 @@ of Shugaba's Collection.
 Born on the 1st of January 2006 in Magami, Gusau,
 Zamfara State, Nigeria, he is a young entrepreneur,
 business enthusiast and visionary leader.
+
+<span id="moreText" style="display:none;">
 
 He is the son of Alhaji Mustapha Umar and
 Hajiya Khadijat Muhammad.
@@ -303,8 +305,13 @@ community development and entrepreneurship.
 His long-term vision is to transform Shugaba's Collection
 into a leading international fashion and lifestyle brand.
 
+</span>
+
 </p>
 
+<button class="btn" onclick="toggleAbout()" id="readBtn">
+Read More
+</button>
 </div>
 
 </div>
@@ -548,7 +555,24 @@ document.getElementById(category)
 .style.display='grid';
 
 }
+function toggleAbout(){
 
+var moreText = document.getElementById("moreText");
+var btn = document.getElementById("readBtn");
+
+if(moreText.style.display === "none"){
+
+    moreText.style.display = "inline";
+    btn.innerHTML = "Read Less";
+
+}else{
+
+    moreText.style.display = "none";
+    btn.innerHTML = "Read More";
+
+}
+
+}
 </script>
 </body>
 
