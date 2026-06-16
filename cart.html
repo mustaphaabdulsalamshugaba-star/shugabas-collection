@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.container{
+max-width:1000px;
+margin:40px auto;
+padding:20px;
+}
+
+.cart-item{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#111;
+padding:20px;
+margin-bottom:20px;
+border:2px solid gold;
+border-radius:10px;
+}
+
+.cart-item img{
+width:100px;
+height:100px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.total{
+font-size:28px;
+margin-top:30px;
+color:gold;
+}
+
+button{
+padding:12px 20px;
+background:gold;
+border:none;
+cursor:pointer;
+font-size:18px;
+border-radius:8px;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Shopping Cart</h1>
+</header>
+
+<div class="container">
+
+<div id="cartItems"></div>
+
+<h2 class="total" id="total"></h2>
+
+<button onclick="checkout()">
+Checkout on WhatsApp
+</button>
+
+</div>
+
+<script src="products.js"></script>
+
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+collection,
+addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+let output = "";
+
+cart.forEach(item=>{
+
+output += `
+
+<div class="cart-item">
+
+<div>
+
+<h3>${item.name}</h3>
+
+<p>${item.price}</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("cartItems").innerHTML = output;
+
+document.getElementById("total").innerHTML =
+"Total Items: " + cart.length;
+
+window.checkout = async function(){
+
+let customerName =
+prompt("Enter Your Full Name");
+
+let customerPhone =
+prompt("Enter Your Phone Number");
+
+let customerAddress =
+prompt("Enter Delivery Address");
+
+try{
+
+await addDoc(
+collection(db,"orders"),
+{
+name: customerName,
+phone: customerPhone,
+address: customerAddress,
+products: cart,
+date: new Date().toISOString()
+}
+);
+
+alert("Order Saved Successfully!");
+
+let message =
+"Hello, I want to order:%0A";
+
+cart.forEach(item=>{
+
+message +=
+"• " + item.name + "%0A";
+
+});
+
+window.open(
+"https://wa.me/2349151084040?text=" +
+message
+);
+
+}
+catch(error){
+
+alert(error.message);
+
+}
+
+};
+</script>
+
+</body>
+
+</html>
