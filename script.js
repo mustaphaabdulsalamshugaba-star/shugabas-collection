@@ -191,6 +191,49 @@ window.location.href="login.html";
 });
 
 }
+function changeQty(btn,value){
+
+let input =
+btn.parentElement.querySelector(".qty-input");
+
+let current =
+parseInt(input.value);
+
+current += value;
+
+if(current < 1){
+current = 1;
+}
+
+input.value = current;
+
+}
+
+function addFeaturedToCart(btn,name,price,image){
+
+let quantity =
+parseInt(
+btn.parentElement.querySelector(".qty-input").value
+);
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+name:name,
+price:price,
+image:image,
+quantity:quantity
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert(quantity + " item(s) added to cart!");
+
+}
 
 window.logout = logout;
 
