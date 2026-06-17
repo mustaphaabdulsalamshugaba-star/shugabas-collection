@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.container{
+max-width:1200px;
+margin:40px auto;
+padding:20px;
+}
+
+.order{
+background:#111;
+border:2px solid gold;
+padding:20px;
+margin-bottom:20px;
+border-radius:10px;
+}
+
+.order h3{
+color:gold;
+margin-bottom:10px;
+}
+
+.delete-btn{
+background:red;
+color:white;
+padding:10px 15px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>SHUGABA'S COLLECTION ADMIN</h1>
+</header>
+
+<div class="container">
+
+<h2>Customer Orders</h2>
+
+<div id="orders"></div>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>
