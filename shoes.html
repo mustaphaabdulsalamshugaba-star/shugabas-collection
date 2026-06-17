@@ -170,15 +170,19 @@ onclick="changeImage('j1',this.src)">
 
 <p>Sizes: S • M • L • XL • XXL</p>
 
-<a
-
-class="whatsapp-btn"
-
-href="https://wa.me/2349151084040">
-
+<a class="whatsapp-btn" href="https://wa.me/2349151084040">
 Order on WhatsApp
-
 </a>
+
+<br><br>
+
+<button onclick="addToCart(
+1,
+'Luxury White Shoes',
+45000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -214,15 +218,19 @@ onclick="changeImage('j2',this.src)">
 
 <p>Sizes: M • L • XL • XXL</p>
 
-<a
-
-class="whatsapp-btn"
-
-href="https://wa.me/2349151084040">
-
+<a class="whatsapp-btn" href="https://wa.me/2349151084040">
 Order on WhatsApp
-
 </a>
+
+<br><br>
+
+<button onclick="addToCart(
+2,
+'Royal Black Shoes',
+55000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -267,7 +275,15 @@ href="https://wa.me/2349151084040">
 Order on WhatsApp
 
 </a>
+<br><br>
 
+<button onclick="addToCart(
+2,
+'Royal Black Shoes',
+55000
+)">
+Add To Cart
+</button>
 </div>
 <!-- PRODUCT 4 -->
 
@@ -296,6 +312,15 @@ Order on WhatsApp
 Order on WhatsApp
 
 </a>
+<br><br>
+
+<button onclick="addToCart(
+2,
+'Royal Black Shoes',
+55000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -326,6 +351,15 @@ Order on WhatsApp
 Order on WhatsApp
 
 </a>
+<br><br>
+
+<button onclick="addToCart(
+2,
+'Royal Black Shoes',
+55000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -356,6 +390,15 @@ Order on WhatsApp
 Order on WhatsApp
 
 </a>
+<br><br>
+
+<button onclick="addToCart(
+2,
+'Royal Black Shoes',
+55000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -386,6 +429,15 @@ Order on WhatsApp
 Order on WhatsApp
 
 </a>
+<br><br>
+
+<button onclick="addToCart(
+2,
+'Royal Black Shoes',
+55000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -416,7 +468,15 @@ Order on WhatsApp
 Order on WhatsApp
 
 </a>
+<br><br>
 
+<button onclick="addToCart(
+2,
+'Royal Black Shoes',
+55000
+)">
+Add To Cart
+</button>
 </div>
 
 <!-- PRODUCT 9 -->
@@ -446,6 +506,15 @@ Order on WhatsApp
 Order on WhatsApp
 
 </a>
+<br><br>
+
+<button onclick="addToCart(
+2,
+'Royal Gold Shoes',
+55000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -497,6 +566,29 @@ products[i].style.display="none";
 }
 
 }
+
+}
+
+</script>
+<script>
+
+function addToCart(id,name,price){
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+id:id,
+name:name,
+price:price
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert(name + " added to cart!");
 
 }
 

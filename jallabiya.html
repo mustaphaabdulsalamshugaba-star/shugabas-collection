@@ -174,15 +174,19 @@ Luxury White Jallabiya
 
 <p>Sizes: S • M • L • XL • XXL</p>
 
-<a
-
-class="whatsapp-btn"
-
-href="https://wa.me/2349151084040">
-
+<a class="whatsapp-btn" href="https://wa.me/2349151084040">
 Order on WhatsApp
-
 </a>
+
+<br><br>
+
+<button onclick="addToCart(
+1,
+'Luxury White Jallabiya',
+45000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -232,6 +236,16 @@ Order on WhatsApp
 
 </a>
 
+<br><br>
+
+<button onclick="addToCart(
+2,
+'Roya Black Jallabiya',
+55000
+)">
+Add To Cart
+</button>
+
 </div>
 
 <!-- PRODUCT 3 -->
@@ -280,6 +294,16 @@ Order on WhatsApp
 
 </a>
 
+<br><br>
+
+<button onclick="addToCart(
+3,
+'Premium Brown Jallabiya',
+50000
+)">
+Add To Cart
+</button>
+
 </div>
 <!-- PRODUCT 4 -->
 
@@ -312,6 +336,16 @@ Classic Navy Jallabiya
 Order on WhatsApp
 
 </a>
+
+<br><br>
+
+<button onclick="addToCart(
+4,
+'Classic Navy Jallabiya',
+48000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -347,6 +381,16 @@ Order on WhatsApp
 
 </a>
 
+<br><br>
+
+<button onclick="addToCart(
+5,
+'Elegant Cream Jallabiya',
+52000
+)">
+Add To Cart
+</button>
+
 </div>
 
 <!-- PRODUCT 6 -->
@@ -380,6 +424,16 @@ Luxury Grey Jallabiya
 Order on WhatsApp
 
 </a>
+
+<br><br>
+
+<button onclick="addToCart(
+6,
+'Luxury Grey Jallabiya',
+58000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -415,6 +469,16 @@ Order on WhatsApp
 
 </a>
 
+<br><br>
+
+<button onclick="addToCart(
+7,
+'Modern Sky Blue Jallabiya',
+47000
+)">
+Add To Cart
+</button>
+
 </div>
 
 <!-- PRODUCT 8 -->
@@ -449,6 +513,16 @@ Order on WhatsApp
 
 </a>
 
+<br><br>
+
+<button onclick="addToCart(
+8,
+'Premium Green Jallabiya',
+54000
+)">
+Add To Cart
+</button>
+
 </div>
 
 <!-- PRODUCT 9 -->
@@ -482,6 +556,16 @@ Royal Gold Jallabiya
 Order on WhatsApp
 
 </a>
+
+<br><br>
+
+<button onclick="addToCart(
+9,
+'Royal Gold Jallabiya',
+60000
+)">
+Add To Cart
+</button>
 
 </div>
 
@@ -533,6 +617,29 @@ products[i].style.display="none";
 }
 
 }
+
+}
+
+</script>
+<script>
+
+function addToCart(id,name,price){
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+id:id,
+name:name,
+price:price
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert(name + " added to cart!");
 
 }
 
