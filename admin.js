@@ -4,6 +4,13 @@ window.location.href =
 "admin-login.html";
 
 }
+import {
+collection,
+getDocs,
+deleteDoc,
+doc,
+updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { db } from "./firebase.js";
 
 import {
@@ -64,12 +71,11 @@ ${product.name}
 </ul>
 
 <button
-class="delete-btn"
-onclick="deleteOrder('${documentData.id}')">
+onclick="markCompleted('${documentData.id}')">
 
 Mark as Completed
 
-</button>
+</button>>
 
 </div>
 
@@ -96,3 +102,15 @@ loadOrders();
 }
 
 loadOrders();
+window.markCompleted = async function(id){
+
+await updateDoc(
+doc(db,"orders",id),
+{
+status: "Delivered"
+}
+);
+
+loadOrders();
+
+}
