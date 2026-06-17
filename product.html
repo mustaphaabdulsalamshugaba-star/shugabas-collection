@@ -373,8 +373,27 @@ related+=`
 });
 
 document.getElementById("relatedProducts").innerHTML=related;
+
+function changeQty(value){
+
+let qty = document.getElementById("qty");
+
+let current = parseInt(qty.value);
+
+current = current + value;
+
+if(current < 1){
+    current = 1;
+}
+
+qty.value = current;
+
+}
+
 function addToCart(){
+
 alert("Product added to cart!");
+
 let quantity = parseInt(document.getElementById("qty").value);
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
