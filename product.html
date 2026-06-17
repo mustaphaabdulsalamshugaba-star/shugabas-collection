@@ -294,6 +294,13 @@ const params=new URLSearchParams(window.location.search);
 const id=parseInt(params.get("id"));
 
 const product=products.find(p=>p.id===id);
+if(!product){
+
+alert("Product not found");
+
+throw new Error("Product not found");
+
+}
 
 document.getElementById("mainImage").src=product.image;
 
@@ -370,11 +377,17 @@ function addToCart(){
 
 alert("Button clicked");
 
-let quantity = parseInt(document.getElementById("qty").value);
+let qtyInput = document.getElementById("qty");
+
+let quantity = 1;
+
+if(qtyInput){
+
+quantity = parseInt(qtyInput.value);
+
+}
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-alert("Cart loaded");
 
 cart.push({
 
@@ -390,12 +403,9 @@ quantity: quantity
 
 });
 
-alert("Product added to array");
-
 localStorage.setItem("cart", JSON.stringify(cart));
 
-alert("Saved to localStorage");
-
+alert("Product added successfully!");
 }
 </script>
 
