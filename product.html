@@ -367,7 +367,7 @@ related+=`
 
 document.getElementById("relatedProducts").innerHTML=related;
 function addToCart(){
-
+alert("Button clicked");
 let quantity = parseInt(document.getElementById("qty").value);
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
