@@ -4,15 +4,18 @@ window.location.href =
 "admin-login.html";
 
 }
-
 import { db } from "./firebase.js";
 
 import {
 collection,
 getDocs,
 deleteDoc,
-doc
+doc,
+updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
 
 const ordersDiv = document.getElementById("orders");
 
@@ -69,7 +72,7 @@ onclick="markCompleted('${documentData.id}')">
 
 Mark as Completed
 
-</button>>
+</button>
 
 </div>
 
