@@ -43,11 +43,11 @@ output += `
 
 <p><strong>Status:</strong> ${order.status || "Pending"}</p>
 
-<p><strong>Products:</strong></p>
+
 </span>
 </p>
 
-<p><strong>Products:</strong></p>
+
 
 <p><strong>Products Ordered:</strong></p>
 
