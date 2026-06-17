@@ -4,6 +4,9 @@ window.location.href =
 "admin-login.html";
 
 }
+
+import { db } from "./firebase.js";
+
 import {
 collection,
 getDocs,
