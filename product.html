@@ -392,8 +392,6 @@ qty.value = current;
 
 function addToCart(){
 
-alert(quantity + " item(s) added to cart!");
-
 let quantity = parseInt(document.getElementById("qty").value);
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -408,7 +406,7 @@ quantity: quantity
 
 localStorage.setItem("cart", JSON.stringify(cart));
 
-
+alert(quantity + " item(s) added to cart!");
 
 }
 </script>
