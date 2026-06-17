@@ -1,3 +1,9 @@
+if(localStorage.getItem("adminLoggedIn") !== "true"){
+
+window.location.href =
+"admin-login.html";
+
+}
 import { db } from "./firebase.js";
 
 import {
@@ -37,13 +43,22 @@ output += `
 
 <p><strong>Products:</strong></p>
 
-<pre>${JSON.stringify(order.products,null,2)}</pre>
+<p><strong>Products Ordered:</strong></p>
+
+<ul>
+${order.products.map(product => `
+<li>
+${product.name}
+(Quantity: ${product.quantity || 1})
+</li>
+`).join("")}
+</ul>
 
 <button
 class="delete-btn"
 onclick="deleteOrder('${documentData.id}')">
 
-Delete Order
+Mark as Completed
 
 </button>
 
