@@ -40,6 +40,17 @@ output += `
 <p><strong>Address:</strong> ${order.address}</p>
 
 <p><strong>Date:</strong> ${order.date}</p>
+<p>
+<strong>Status:</strong>
+<span style="
+color:
+${order.status==="Delivered"?"lime":
+order.status==="Processing"?"orange":"red"};
+font-weight:bold;
+">
+${order.status || "Pending"}
+</span>
+</p>
 
 <p><strong>Products:</strong></p>
 
