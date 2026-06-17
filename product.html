@@ -375,37 +375,22 @@ related+=`
 document.getElementById("relatedProducts").innerHTML=related;
 function addToCart(){
 
-alert("Button clicked");
-
-let qtyInput = document.getElementById("qty");
-
-let quantity = 1;
-
-if(qtyInput){
-
-quantity = parseInt(qtyInput.value);
-
-}
+let quantity = parseInt(document.getElementById("qty").value);
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 cart.push({
-
 id: product.id,
-
 name: product.name,
-
 price: product.price,
-
 image: product.image,
-
 quantity: quantity
-
 });
 
 localStorage.setItem("cart", JSON.stringify(cart));
 
-alert("Product added successfully!");
+alert(JSON.stringify(cart));
+
 }
 </script>
 
