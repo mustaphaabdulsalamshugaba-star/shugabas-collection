@@ -367,10 +367,14 @@ related+=`
 
 document.getElementById("relatedProducts").innerHTML=related;
 function addToCart(){
+
 alert("Button clicked");
+
 let quantity = parseInt(document.getElementById("qty").value);
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+alert("Cart loaded");
 
 cart.push({
 
@@ -386,26 +390,11 @@ quantity: quantity
 
 });
 
+alert("Product added to array");
+
 localStorage.setItem("cart", JSON.stringify(cart));
 
-alert(quantity + " item(s) added to cart!");
-
-}
-function changeQty(value){
-
-let qty=document.getElementById("qty");
-
-let current=parseInt(qty.value);
-
-current=current+value;
-
-if(current<1){
-
-current=1;
-
-}
-
-qty.value=current;
+alert("Saved to localStorage");
 
 }
 </script>
