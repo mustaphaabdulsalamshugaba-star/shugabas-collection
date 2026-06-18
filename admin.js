@@ -77,13 +77,13 @@ Mark as Completed
 
 });
 
-document.getElementById("totalOrders").textContent =
+document.getElementById("totalOrders").innerHTML =
 totalOrders;
 
-document.getElementById("pendingOrders").textContent =
+document.getElementById("pendingOrders").innerHTML =
 pendingOrders;
 
-document.getElementById("deliveredOrders").textContent =
+document.getElementById("deliveredOrders").innerHTML =
 deliveredOrders;
 
 ordersDiv.innerHTML = output;
