@@ -67,13 +67,14 @@ ${product.name}
 (Quantity: ${product.quantity || 1})
 </li>
 `).join("")}
-</ul><button
+</ul>
+${order.status === "Delivered" ? "" : `
+<button
 class="complete-btn"
 onclick="markCompleted('${documentData.id}')">
-
 Mark as Completed
-
-</button></div>`;
+</button>
+`}</div>`;
 
 });
 
