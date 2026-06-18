@@ -45,10 +45,9 @@ deliveredOrders++;
 pendingOrders++;
 }
 
-if(order.products){
+if(Array.isArray(order.products)){
 
 order.products.forEach(product=>{
-
 let price = 0;
 
 if(product.price){
@@ -78,12 +77,12 @@ font-weight:bold;
 ${order.status || "Pending"}
 </span>
 </p><p><strong>Products Ordered:</strong></p><ul>
-${order.products.map(product => `
+${order.products ? order.products.map(product => `
 <li>
 ${product.name}
 (Quantity: ${product.quantity || 1})
 </li>
-`).join("")}
+`).join("") : ""}
 </ul>
 
 ${order.status === "Delivered" ? "" : `
