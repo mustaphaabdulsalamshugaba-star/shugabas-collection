@@ -29,7 +29,7 @@ collection(db,"orders")
 let totalOrders = 0;
 let pendingOrders = 0;
 let deliveredOrders = 0;
-
+let totalRevenue = 0;
 let output = "";
 
 querySnapshot.forEach((documentData)=>{
