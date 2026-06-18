@@ -124,6 +124,7 @@ document.getElementById("totalRevenue").textContent =
 ordersDiv.innerHTML = output;
 
 }
+
 window.deleteOrder = async function(id){
 
 if(confirm("Delete this order?")){
