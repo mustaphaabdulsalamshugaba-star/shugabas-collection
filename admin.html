@@ -43,12 +43,48 @@ cursor:pointer;
 </head>
 
 <body>
+<nav class="admin-nav">
 
+<a href="admin.html">
+📦 Orders
+</a>
+
+<a href="products-admin.html">
+🛍 Products
+</a>
+
+<a href="#">
+👥 Customers
+</a>
+
+<a href="#" onclick="logout()">
+🚪 Logout
+</a>
+
+</nav>
 <header>
 <h1>SHUGABA'S COLLECTION ADMIN</h1>
 </header>
 
 <div class="container">
+<div class="stats">
+
+<div class="stat-card">
+<h3>Total Orders</h3>
+<p id="totalOrders">0</p>
+</div>
+
+<div class="stat-card">
+<h3>Pending Orders</h3>
+<p id="pendingOrders">0</p>
+</div>
+
+<div class="stat-card">
+<h3>Delivered Orders</h3>
+<p id="deliveredOrders">0</p>
+</div>
+
+</div>
 
 <h2>Customer Orders</h2>
 
