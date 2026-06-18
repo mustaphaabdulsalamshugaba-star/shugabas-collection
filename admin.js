@@ -100,6 +100,9 @@ pendingOrders;
 document.getElementById("deliveredOrders").innerHTML =
 deliveredOrders;
 
+document.getElementById("totalRevenue").textContent =
+"₦" + totalRevenue.toLocaleString();
+
 ordersDiv.innerHTML = output;
 
 }
