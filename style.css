@@ -840,6 +840,34 @@ font-weight:bold;
 
 }
 
+.admin-nav{
+display:flex;
+gap:20px;
+padding:15px;
+background:#111;
+}
+
+.stat-card{
+background:#111;
+border:2px solid gold;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.delete-btn{
+background:red;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.delete-btn:hover{
+opacity:0.8;
+}
+
 
 /* =========================
    END OF STYLE.CSS

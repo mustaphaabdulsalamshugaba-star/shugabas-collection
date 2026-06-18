@@ -34,6 +34,11 @@ description
 
 alert("Product Added Successfully");
 
+document.getElementById("name").value = "";
+document.getElementById("price").value = "";
+document.getElementById("image").value = "";
+document.getElementById("description").value = "";
+
 loadProducts();
 
 };
@@ -44,32 +49,41 @@ const snapshot =
 await getDocs(productsRef);
 
 let output = "";
-
+let totalProducts = 0;
 snapshot.forEach((item)=>{
 
 const product = item.data();
-
+totalProducts++;
 output += `
 <div class="order">
 
+<img src="${product.image}"
+style="
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:10px;
+border:2px solid gold;
+">
+
 <h3>${product.name}</h3>
 
-<p>${product.price}</p>
+<p><strong>${product.price}</strong></p>
 
-<img src="${product.image}"
-width="120">
+<p>${product.description}</p>
 
-<br><br>
-
-<button onclick="deleteProduct('${item.id}')">
-Delete
+<button
+class="delete-btn"
+onclick="deleteProduct('${item.id}')">
+Delete Product
 </button>
 
 </div>
 `;
 
 });
-
+document.getElementById("productCount").textContent =
+totalProducts;
 document.getElementById("productsList").innerHTML =
 output;
 
@@ -78,11 +92,15 @@ output;
 window.deleteProduct =
 async function(id){
 
+if(confirm("Delete this product?")){
+
 await deleteDoc(
 doc(db,"products",id)
 );
 
 loadProducts();
+
+}
 
 };
 
