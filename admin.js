@@ -68,6 +68,7 @@ ${product.name}
 </ul>
 
 <button
+class="complete-btn"
 onclick="markCompleted('${documentData.id}')">
 
 Mark as Completed
