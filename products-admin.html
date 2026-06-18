@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Manage Products</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>SHUGABA'S COLLECTION PRODUCTS</h1>
+</header>
+
+<div class="container">
+
+<h2>Add New Product</h2>
+
+<input type="text" id="name" placeholder="Product Name"><br><br>
+
+<input type="text" id="price" placeholder="Price"><br><br>
+
+<input type="text" id="image" placeholder="Image URL"><br><br>
+
+<textarea id="description" placeholder="Description"></textarea><br><br>
+
+<button onclick="addProduct()">
+Add Product
+</button>
+
+<hr>
+
+<h2>All Products</h2>
+
+<div id="productsList"></div>
+
+</div>
+
+<script type="module" src="products-admin.js"></script>
+
+</body>
+</html>
