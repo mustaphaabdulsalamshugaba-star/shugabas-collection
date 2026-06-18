@@ -33,9 +33,9 @@ let totalRevenue = 0;
 let output = "";
 
 querySnapshot.forEach((documentData)=>{
+});
 
 const order = documentData.data();
-order.products.forEach(product=>{
 
 if(order.products){
 
@@ -45,22 +45,20 @@ let price = 0;
 
 if(product.price){
 
-price =
-parseInt(
+price = parseInt(
 product.price.replace(/[^\d]/g,"")
 ) || 0;
 
 }
 
-let quantity =
-product.quantity || 1;
+let quantity = product.quantity || 1;
 
-totalRevenue +=
-price * quantity;
+totalRevenue += price * quantity;
 
 });
 
 }
+
 totalOrders++;
 
 if(order.status === "Delivered"){
@@ -72,8 +70,7 @@ deliveredOrders++;
 pendingOrders++;
 
 }
-
-output += `
+output += `...`;
 
 <div class="order"><h3>${order.name}</h3><p><strong>Phone:</strong> ${order.phone}</p><p><strong>Address:</strong> ${order.address}</p><p><strong>Date:</strong> ${order.date}</p><p>
 <strong>Status:</strong>
@@ -102,6 +99,15 @@ Mark as Completed
 `}</div>`;
 
 });
+querySnapshot.forEach((documentData)=>{
+
+const order = documentData.data();
+
+/* revenue code */
+
+output += `...`;
+
+});   // <- important
 
 document.getElementById("totalOrders").innerHTML =
 totalOrders;
