@@ -35,7 +35,20 @@ let output = "";
 querySnapshot.forEach((documentData)=>{
 
 const order = documentData.data();
+order.products.forEach(product=>{
 
+let price =
+parseInt(
+product.price.replace(/[^\d]/g,"")
+);
+
+let quantity =
+product.quantity || 1;
+
+totalRevenue +=
+price * quantity;
+
+});
 totalOrders++;
 
 if(order.status === "Delivered"){
