@@ -21,11 +21,11 @@ id:2,
 name:"Royal Black Jallabiya",
 price:"₦55,000",
 category:"Jallabiya",
-image:"images/jallabiya4.jpg",
+image:"jallabiya4.jpg",
 gallery:[
-"images/jallabiya4.jpg",
-"images/jallabiya5.jpg",
-"images/jallabiya6.jpg"
+"jallabiya4.jpg",
+"jallabiya5.jpg",
+"jallabiya6.jpg"
 ],
 sizes:["M","L","XL"],
 colors:["Black"],
@@ -37,11 +37,11 @@ id:3,
 name:"Premium Brown Jallabiya",
 price:"₦50,000",
 category:"Jallabiya",
-image:"images/jallabiya7.jpg",
+image:"jallabiya7.jpg",
 gallery:[
-"images/jallabiya7.jpg",
-"images/jallabiya8.jpg",
-"images/jallabiya9.jpg"
+"jallabiya7.jpg",
+"jallabiya8.jpg",
+"jallabiya9.jpg"
 ],
 sizes:["S","M","L","XL"],
 colors:["Brown"],
