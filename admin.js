@@ -29,7 +29,6 @@ collection(db,"orders")
 let totalOrders = 0;
 let pendingOrders = 0;
 let deliveredOrders = 0;
-let totalRevenue = 0;
 
 let output = "";
 
@@ -40,29 +39,12 @@ const order = documentData.data();
 totalOrders++;
 
 if(order.status === "Delivered"){
+
 deliveredOrders++;
+
 }else{
+
 pendingOrders++;
-}
-
-if(Array.isArray(order.products)){
-
-order.products.forEach(product=>{
-let price = 0;
-
-if(product.price){
-
-price = parseInt(
-product.price.replace(/[^\d]/g,"")
-) || 0;
-
-}
-
-let quantity = product.quantity || 1;
-
-totalRevenue += price * quantity;
-
-});
 
 }
 
@@ -71,43 +53,39 @@ output += `
 <div class="order"><h3>${order.name}</h3><p><strong>Phone:</strong> ${order.phone}</p><p><strong>Address:</strong> ${order.address}</p><p><strong>Date:</strong> ${order.date}</p><p>
 <strong>Status:</strong>
 <span style="
-color:${order.status==="Delivered"?"lime":"red"};
+color:
+${order.status==="Delivered"?"lime":
+order.status==="Processing"?"orange":"red"};
 font-weight:bold;
 ">
 ${order.status || "Pending"}
 </span>
 </p><p><strong>Products Ordered:</strong></p><ul>
-${order.products ? order.products.map(product => `
+${order.products.map(product => `
 <li>
 ${product.name}
 (Quantity: ${product.quantity || 1})
 </li>
-`).join("") : ""}
+`).join("")}
 </ul>
-
 ${order.status === "Delivered" ? "" : `
 <button
 class="complete-btn"
 onclick="markCompleted('${documentData.id}')">
 Mark as Completed
 </button>
-`}
-
-</div>`;
+`}</div>`;
 
 });
 
-document.getElementById("totalOrders").textContent =
+document.getElementById("totalOrders").innerHTML =
 totalOrders;
 
-document.getElementById("pendingOrders").textContent =
+document.getElementById("pendingOrders").innerHTML =
 pendingOrders;
 
-document.getElementById("deliveredOrders").textContent =
+document.getElementById("deliveredOrders").innerHTML =
 deliveredOrders;
-
-document.getElementById("totalRevenue").textContent =
-"₦" + totalRevenue.toLocaleString();
 
 ordersDiv.innerHTML = output;
 
