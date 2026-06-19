@@ -29,7 +29,7 @@ collection(db,"orders")
 let totalOrders = 0;
 let pendingOrders = 0;
 let deliveredOrders = 0;
-
+let totalRevenue = 0;
 let output = "";
 
 querySnapshot.forEach((documentData)=>{
@@ -37,6 +37,8 @@ querySnapshot.forEach((documentData)=>{
 const order = documentData.data();
 
 totalOrders++;
+
+totalRevenue += order.total;
 
 if(order.status === "Delivered"){
 
@@ -86,6 +88,8 @@ pendingOrders;
 
 document.getElementById("deliveredOrders").innerHTML =
 deliveredOrders;
+
+document.getElementById("totalRevenue").innerHTML = `₦${totalRevenue.toFixed(2)}`;
 
 ordersDiv.innerHTML = output;
 
